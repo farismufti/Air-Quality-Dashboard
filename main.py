@@ -4,7 +4,7 @@ import random
 app = Flask(__name__)
 
 
-@app.route("/homePage")
+@app.route("/")
 def home():
     return render_template("MainPage.html")
 
@@ -28,7 +28,7 @@ def airQualityIndexPage():
 
 
 @app.route("/humidityLevel")
-def airQualityIndexPage():
+def humidityLevelPage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
@@ -45,8 +45,8 @@ def airQualityIndexPage():
     return render_template("HumidityLevel.html", labels=labels, values=values)
 
 
-@app.route("/temperature")
-def airQualityIndexPage():
+@app.route("/airTemperature")
+def airTemperaturePage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
@@ -60,11 +60,11 @@ def airQualityIndexPage():
     labels = [row[0] for row in data]
     values = [row[1] for row in data]
 
-    return render_template("Temperature.html", labels=labels, values=values)
+    return render_template("AirTemperature.html", labels=labels, values=values)
 
 
 @app.route("/airPressure")
-def airQualityIndexPage():
+def airPressurePage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
@@ -82,7 +82,7 @@ def airQualityIndexPage():
 
 
 @app.route("/volatileOrganicComounds")
-def airQualityIndexPage():
+def volatileOrganicCompoundsPage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
@@ -100,7 +100,7 @@ def airQualityIndexPage():
 
 
 @app.route("/carbonDioxideEstimate")
-def airQualityIndexPage():
+def carbonDioxideEstimatePage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
@@ -118,7 +118,7 @@ def airQualityIndexPage():
 
 
 @app.route("/gasSensorResistance")
-def airQualityIndexPage():
+def gasSensorResistancePage():
     data = [
         ("01-01-2022", random.randrange(1, 70)),
         ("02-01-2022", random.randrange(1, 70)),
