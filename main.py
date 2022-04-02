@@ -1,8 +1,6 @@
 from flask import Flask, render_template
-import random
 import sqlite3
 import time
-import parser
 
 app = Flask(__name__)
 
@@ -92,7 +90,7 @@ def airPressurePage():
     return render_template("AirPressure.html", labels=labels, values=values)
 
 
-@app.route("/volatileOrganicComounds")
+@app.route("/volatileOrganicCompounds")
 def volatileOrganicCompoundsPage():
     conn = sqlite3.connect('UmbrellaDataTable.db')
     cursor = conn.cursor()
