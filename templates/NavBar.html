@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Umbrella Project Environmental Data</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url_for('homePage')}}">Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('airQualityIndexPage')}}">Air Quality Index</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('humidityLevelPage')}}">Humidity Level</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('airTemperaturePage')}}">Air Temperature</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('airPressurePage')}}">Air Pressure</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('volatileOrganicCompoundsPage')}}">Volatile Organic Compounds</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('gasSensorResistancePage')}}">Gas Sensor Resistance</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{url_for('carbonDioxideEstimatePage')}}">Carbon Dioxide Estimate</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
