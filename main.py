@@ -14,18 +14,21 @@ def homePage():
 
 @app.route("/airQualityIndex")
 def airQualityIndexPage():
+    # Establish a connection with the database
     conn = sqlite3.connect('UmbrellaDataTable.db')
     cursor = conn.cursor()
+
+    # Query Database
     cursor.execute('''SELECT * from UmbrellaDataTable''')
     data = cursor.fetchall()
 
     labels = []
     values = []
 
+    # Lists storing values to be used for charts
     for row in data:
         labels.append(row[0])
         values.append(row[2])
-        # .strftime("%d-%m-%Y (%H:%M)"))
 
     conn.commit()
     conn.close()
@@ -164,6 +167,8 @@ def heatMapPage():
     # Node ID: RSE-L-A5-C
     conn = sqlite3.connect('UmbrellaDataTable.db')
     cursor = conn.cursor()
+
+    # Query database for data of a specific sensor node
     cursor.execute('''SELECT temperature from UmbrellaDataTable WHERE hostName = "RSE-L-A-5-C"''')
     nodeData1 = cursor.fetchall()
     conn.commit()
@@ -174,7 +179,10 @@ def heatMapPage():
     for row in nodeData1:
         node1Values.append(row[0])
 
+    # Heatmap zone value scaled
     node1Average = st.mean(node1Values) / 10
+
+    # [lat, long, measured value]
     node1 = [51.505145, -2.543547, node1Average],
 
     # Node ID: RSE-A-8-C
@@ -241,12 +249,14 @@ def heatMapPage():
     node5Average = st.mean(node5Values) / 10
     node5 = [51.502245, -2.551147, node5Average],
 
+    # Add heatmap zone objects to map
     HeatMap(node1).add_to(heatMap)
     HeatMap(node2).add_to(heatMap)
     HeatMap(node3).add_to(heatMap)
     HeatMap(node4).add_to(heatMap)
     HeatMap(node5).add_to(heatMap)
 
+    # Generate heatmap page
     heatMap.save("templates/HeatMap.html")
 
     return render_template("HeatMap.html")

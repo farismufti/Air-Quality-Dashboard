@@ -3,9 +3,11 @@ import timeit
 
 start = timeit.default_timer()
 
+# Establish database connection
 connection = sqlite3.connect("UmbrellaDataTable.db")
 cursor = connection.cursor()
 
+# SQLite database creation
 sql = """
         CREATE TABLE UmbrellaDataTable (
             time INTEGER,
